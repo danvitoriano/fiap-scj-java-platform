@@ -2,11 +2,11 @@ package ex3;
 public class ContaBancaria {
 
 	protected double saldo;
-	private String nomeCliente;
-	private String endCliente;
-	private String cpfCliente;
+	protected String nomeCliente;
+	protected String endCliente;
+	protected String cpfCliente;
 
-	public ContaBancaria(double saldo, String nomeCliente, String endCliente, String cpfCliente) {
+	public ContaBancaria(String nomeCliente, String endCliente, String cpfCliente) {
 		super();
 		this.saldo = saldo;
 		this.nomeCliente = nomeCliente;

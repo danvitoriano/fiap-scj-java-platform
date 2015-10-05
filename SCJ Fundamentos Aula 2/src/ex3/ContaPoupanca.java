@@ -1,8 +1,8 @@
 package ex3;
 public class ContaPoupanca extends ContaBancaria {
 	
-	public ContaPoupanca(double saldo, String nomeCliente, String endCliente, String cpfCliente) {
-		super(saldo, nomeCliente, endCliente, cpfCliente);
+	public ContaPoupanca(String nomeCliente, String endCliente, String cpfCliente) {
+		super(nomeCliente, endCliente, cpfCliente);
 	}
 
 	private int diaAniversario;
