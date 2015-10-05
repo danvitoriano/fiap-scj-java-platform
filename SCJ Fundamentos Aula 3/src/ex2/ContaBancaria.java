@@ -1,4 +1,4 @@
-package ex3;
+package ex2;
 public class ContaBancaria {
 
 	protected double saldo;
@@ -8,15 +8,15 @@ public class ContaBancaria {
 
 	public ContaBancaria(String nomeCliente, String endCliente, String cpfCliente) {
 		super();
-		this.saldo = saldo;
 		this.nomeCliente = nomeCliente;
 		this.endCliente = endCliente;
 		this.cpfCliente = cpfCliente;
 	}
-	public void saque(double valor){
+	public void saque(double valor) throws SaldoInsuficiente{
 		saldo-=valor;
 	}
 	public void deposita(double valor){
 		saldo+=valor;
 	}
+
 }
