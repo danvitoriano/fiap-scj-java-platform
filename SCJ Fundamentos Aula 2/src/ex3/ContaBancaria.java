@@ -8,7 +8,6 @@ public class ContaBancaria {
 
 	public ContaBancaria(String nomeCliente, String endCliente, String cpfCliente) {
 		super();
-		this.saldo = saldo;
 		this.nomeCliente = nomeCliente;
 		this.endCliente = endCliente;
 		this.cpfCliente = cpfCliente;
