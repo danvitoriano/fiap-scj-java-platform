@@ -1,7 +1,6 @@
 package ex4;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public abstract class ContaBancaria {
 

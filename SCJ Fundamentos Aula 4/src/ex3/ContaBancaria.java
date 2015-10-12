@@ -4,10 +4,8 @@ import java.time.LocalDate;
 
 public abstract class ContaBancaria {
 
-	private double saldo;
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
+	protected double saldo;
+
 	protected String nomeCliente;
 	protected String endCliente;
 	protected String cpfCliente;
@@ -22,6 +20,10 @@ public abstract class ContaBancaria {
 		this.cpfCliente = cpfCliente;
 		this.dataNascimento = dataNascimento;
 		this.dataRegistro = dataRegistro;
+	}
+	
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
 	}
 	public void saque(double valor) throws SaldoInsuficiente{
 		saldo-=valor;
