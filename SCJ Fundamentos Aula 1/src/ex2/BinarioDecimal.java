@@ -1,4 +1,4 @@
-package ex4;
+package ex2;
 public class BinarioDecimal {
 
 	public static void main(String[] args) {
