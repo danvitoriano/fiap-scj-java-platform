@@ -1,0 +1,13 @@
+<hibernate-mapping>
+
+	<class name="br.fiap.Venda" catalog="FIAP">
+		<id name="id" column="ID" type="int">
+			<generator class="native" />
+		</id>
+		<property name="produto" column="nome" type="string" length="200"/>
+		
+		<many-to-one name="cliente" class="br.fiap.Cliente" 
+			column="id_cliente" cascade="all" outer-join="false" />
+	</class>
+
+</hibernate-mapping>

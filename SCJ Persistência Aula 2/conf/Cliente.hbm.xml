@@ -1,0 +1,11 @@
+<hibernate-mapping>
+
+	<class name="br.fiap.Cliente" catalog="FIAP">
+		<id name="id" column="ID" type="int">
+			<generator class="native" />
+		</id>
+		<property name="nome" column="nome" type="string" length="200"/>
+		<property name="endereco" column="endereco" type="string" length="200"/>
+	</class>
+
+</hibernate-mapping>
