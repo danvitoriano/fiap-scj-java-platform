@@ -1,4 +1,4 @@
-package roteiro.br.com.fiap.entity;
+package roteiro1.br.com.fiap.entity;
 
 import java.util.Date;
 
@@ -10,7 +10,9 @@ public class Pedidos {
 	private String descricao;
 	private double valor;
 	
-
+	public Pedidos(){
+		
+	}
 
 	public Pedidos(Date data, String descricao, double valor, int id, int idCliente) {
 		super();

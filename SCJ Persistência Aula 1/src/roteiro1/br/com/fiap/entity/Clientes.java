@@ -1,4 +1,4 @@
-package roteiro.br.com.fiap.entity;
+package roteiro1.br.com.fiap.entity;
 
 import java.util.List;
 
@@ -9,6 +9,9 @@ public class Clientes {
 	private String email;
 	private List<Pedidos> pedidos;
 	
+	public Clientes(){
+		
+	}
 	
 	public Clientes(String nome, String email, List<Pedidos> pedidos) {
 		super();

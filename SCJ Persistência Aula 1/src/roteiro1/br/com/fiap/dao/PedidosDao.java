@@ -1,9 +1,9 @@
-package roteiro.br.com.fiap.dao;
+package roteiro1.br.com.fiap.dao;
 
 import java.sql.Date;
 import java.sql.SQLException;
 
-import roteiro.br.com.fiap.entity.Pedidos;
+import roteiro1.br.com.fiap.entity.Pedidos;
 
 public class PedidosDao extends Dao {
 	
