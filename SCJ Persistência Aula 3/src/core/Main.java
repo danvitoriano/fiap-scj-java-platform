@@ -17,8 +17,8 @@ public class Main {
 		EntityManager entityManager =
 				entityManagerFactory.createEntityManager();
 		ForumJavaPersistenceDAO p = new ForumJavaPersistenceDAO(entityManager);
-		Forum forum=p.createForum("teste", "desc");
-		Usuario usuario = p.createUsuario("joão", "joão@teste.com");
+		Forum forum=p.createForum("teste2", "desc2");
+		Usuario usuario = p.createUsuario("joão2", "joão2@teste.com");
 		p.addUsuarioToForum(forum, usuario);
 
 	}

@@ -14,11 +14,13 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity 
-@SequenceGenerator(name="cliente", sequenceName="SEQ_CLIENTE",  allocationSize=1)
+//MYSQL NÃO TEM GERADORES
+//@SequenceGenerator(name="cliente", sequenceName="SEQ_CLIENTE",  allocationSize=1)
 @Table(name="TAB_CLIENTE")
 public class ClienteEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cliente")
+	//@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cliente")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="COD_CLIENTE")
 	private int id;
 	@Column(name="NOM_CLIENTE", nullable=false)
