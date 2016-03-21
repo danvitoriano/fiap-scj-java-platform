@@ -18,9 +18,7 @@ public class Main {
 			
 			ClientesDao clientesDao = DaoFactory.getDaoFactory(DaoFactory.MYSQL).getClientesDao();
 			
-			
 			List<Pedidos> listaPedidos = new ArrayList<>();
-	
 			
 			Clientes cliente = new Clientes();
 			cliente.setNome("Pedro Fontes");
