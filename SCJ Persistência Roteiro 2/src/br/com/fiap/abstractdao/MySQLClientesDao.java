@@ -1,4 +1,4 @@
-package roteiro2.br.com.fiap.abstractdao;
+package br.com.fiap.abstractdao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import roteiro1.br.com.fiap.entity.Clientes;
-import roteiro1.br.com.fiap.entity.Pedidos;
+import br.com.fiap.entity.Clientes;
+import br.com.fiap.entity.Pedidos;
 
 public class MySQLClientesDao implements ClientesDao{
 

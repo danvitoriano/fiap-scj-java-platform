@@ -1,14 +1,14 @@
-package roteiro2.br.com.fiap.aplicacao;
+package br.com.fiap.aplicacao;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import roteiro1.br.com.fiap.entity.Clientes;
-import roteiro1.br.com.fiap.entity.Pedidos;
-import roteiro2.br.com.fiap.abstractdao.ClientesDao;
-import roteiro2.br.com.fiap.abstractdao.DaoFactory;
-import roteiro2.br.com.fiap.abstractdao.PedidosDao;
+import br.com.fiap.abstractdao.ClientesDao;
+import br.com.fiap.abstractdao.DaoFactory;
+import br.com.fiap.abstractdao.PedidosDao;
+import br.com.fiap.entity.Clientes;
+import br.com.fiap.entity.Pedidos;
 
 public class Main {
 

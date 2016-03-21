@@ -1,4 +1,4 @@
-package roteiro2.br.com.fiap.abstractdao;
+package br.com.fiap.abstractdao;
 
 public class SqlServerDaoFactory extends DaoFactory{
 	@Override
