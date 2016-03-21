@@ -1,4 +1,4 @@
-package roteiro1.br.com.fiap.dao;
+package br.com.fiap.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

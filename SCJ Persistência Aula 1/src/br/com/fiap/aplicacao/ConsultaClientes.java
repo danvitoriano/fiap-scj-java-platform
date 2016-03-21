@@ -1,9 +1,9 @@
-package roteiro1.br.com.fiap.aplicacao;
+package br.com.fiap.aplicacao;
 
-import roteiro1.br.com.fiap.dao.ClientesDao;
-import roteiro1.br.com.fiap.dao.PedidosDao;
-import roteiro1.br.com.fiap.entity.Clientes;
-import roteiro1.br.com.fiap.entity.Pedidos;
+import br.com.fiap.dao.ClientesDao;
+import br.com.fiap.dao.PedidosDao;
+import br.com.fiap.entity.Clientes;
+import br.com.fiap.entity.Pedidos;
 
 public class ConsultaClientes {
 

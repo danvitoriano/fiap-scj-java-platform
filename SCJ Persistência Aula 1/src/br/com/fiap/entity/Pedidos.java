@@ -1,4 +1,4 @@
-package roteiro1.br.com.fiap.entity;
+package br.com.fiap.entity;
 
 import java.util.Date;
 
