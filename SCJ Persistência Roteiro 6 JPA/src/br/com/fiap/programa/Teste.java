@@ -21,6 +21,7 @@ public class Teste {
 		listarFuncionarios(em);
 		buscarFuncionario(em, "2000");
 	}
+	
 	private static void incluirFuncionario(EntityManager em){ 
 		Helper dao = new Helper(em);
 		Funcionario funcionario = new Funcionario(); 
