@@ -54,7 +54,7 @@ public class Teste {
 		
 		try {
 			dao.salvar(cliente);
-			System.out.println("Funcionario OK"); 
+			System.out.println("Cliente OK"); 
 		} 
 		catch (Exception e) {
 			System.out.println(e.getMessage());
