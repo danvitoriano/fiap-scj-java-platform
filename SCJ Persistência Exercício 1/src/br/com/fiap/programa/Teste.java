@@ -1,5 +1,6 @@
 package br.com.fiap.programa;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -40,6 +41,16 @@ public class Teste {
 		
 		cliente.getPedidos().add(pedido);
 		
+		Calendar cal=Calendar.getInstance();
+		cal.add(Calendar.MINUTE, -10);
+		
+		Pedidos pedido2 = new Pedidos();
+		pedido2.setCliente(cliente);
+		pedido2.setData(cal.getTime());
+		pedido2.setDescricao("Materiais Impressão");
+		pedido2.setValor(44000);	
+		
+		cliente.getPedidos().add(pedido2);
 		
 		try {
 			dao.salvar(cliente);
