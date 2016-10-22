@@ -1,13 +1,27 @@
 package ex1;
 
-import java.math.BigDecimal;
-
 public class Cliente {
 	
 	private String nome;
-	private BigDecimal numeroRg;
-	private BigDecimal numeroCpf;
+	private String numeroRg;
+	private String numeroCpf;
+	private String endereco;
 	
+	public Cliente(){
+		
+	}
+	
+	public Cliente(String numeroRg){
+		this();
+		this.numeroRg=numeroRg;
+	}
+	
+	public Cliente(String numeroRg, String numeroCpf, String endereco, String nome){
+		this(numeroRg);
+		this.numeroRg=numeroCpf;
+		this.endereco=endereco;
+		this.nome=nome;
+	}
 	
 	
 	public String getNome() {
@@ -16,16 +30,16 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public BigDecimal getNumeroRg() {
+	public String getNumeroRg() {
 		return numeroRg;
 	}
-	public void setNumeroRg(BigDecimal numeroRg) {
+	public void setNumeroRg(String numeroRg) {
 		this.numeroRg = numeroRg;
 	}
-	public BigDecimal getNumeroCpf() {
+	public String getNumeroCpf() {
 		return numeroCpf;
 	}
-	public void setNumeroCpf(BigDecimal numeroCpf) {
+	public void setNumeroCpf(String numeroCpf) {
 		this.numeroCpf = numeroCpf;
 	}
 	public String getEndereco() {
@@ -34,7 +48,6 @@ public class Cliente {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	private String endereco;
 	
 	
 
