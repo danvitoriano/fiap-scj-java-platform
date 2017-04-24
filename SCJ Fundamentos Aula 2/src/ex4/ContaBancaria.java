@@ -5,7 +5,6 @@ import java.time.LocalDate;
 public abstract class ContaBancaria {
 
 	protected double saldo;
-
 	protected String nomeCliente;
 	protected String endCliente;
 	protected String cpfCliente;
@@ -26,10 +25,10 @@ public abstract class ContaBancaria {
 		this.saldo = saldo;
 	}
 	public void saque(double valor) throws SaldoInsuficiente{
-		saldo-=valor;
+		saldo -= valor;
 	}
 	public void deposita(double valor){
-		saldo+=valor;
+		saldo += valor;
 	}
 	public double getSaldo() {
 		return saldo;

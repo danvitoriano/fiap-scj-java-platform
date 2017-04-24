@@ -18,11 +18,11 @@ public class ContaBancaria {
 	}
 	
 	public void saque(double valor){
-		saldo-=valor;
+		saldo -= valor;
 	}
 	
 	public void deposita(double valor){
-		saldo+=valor;
+		saldo += valor;
 	}
 	
 	public double getSaldo(){

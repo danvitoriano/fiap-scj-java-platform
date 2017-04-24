@@ -1,6 +1,5 @@
 package lambda;
+
 public interface OperadorDouble {
-    public Double aplicar(Double a, Double b);
+	public Double aplicar(Double a, Double b);
 }
-
-

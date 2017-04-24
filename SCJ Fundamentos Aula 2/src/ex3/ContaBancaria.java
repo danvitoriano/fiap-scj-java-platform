@@ -13,9 +13,9 @@ public class ContaBancaria {
 		this.cpfCliente = cpfCliente;
 	}
 	public void saque(double valor){
-		saldo-=valor;
+		saldo -= valor;
 	}
 	public void deposita(double valor){
-		saldo+=valor;
+		saldo += valor;
 	}
 }

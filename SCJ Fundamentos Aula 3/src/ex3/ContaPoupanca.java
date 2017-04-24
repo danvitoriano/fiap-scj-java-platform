@@ -11,30 +11,26 @@ public class ContaPoupanca extends ContaBancaria {
 		super(nomeCliente, endCliente, cpfCliente, dataNascimento, dataRegistro);
 	}
 
-	private int diaAniversario;
-
 	public void saque(double valor) throws SaldoInsuficiente{
 		
-		if (super.getSaldo()-(valor-0.10)<0){
+		if (super.getSaldo() - (valor - 0.10) < 0){
 			throw new SaldoInsuficiente("Saldo Insuficiente para o Saque.");
 		}
 		
-		long meses=ChronoUnit.MONTHS.between(dataRegistro, LocalDateTime.now());
+		long meses = ChronoUnit.MONTHS.between(dataRegistro, LocalDateTime.now());
 		
-		if (ChronoUnit.MONTHS.between(dataRegistro, LocalDateTime.now())>=12){
+		if (ChronoUnit.MONTHS.between(dataRegistro, LocalDateTime.now()) >= 12){
 			System.out.println("Parabéns, já está conosco há "+meses+" meses!");
-			super.setSaldo(super.getSaldo()-valor);
+			super.setSaldo(super.getSaldo() - valor);
 		}
 		else
 		{
-			super.setSaldo(super.getSaldo()-valor-0.10);
+			super.setSaldo(super.getSaldo() - valor - 0.10);
 		}
 		
 	}
 	
-
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
 		ContaPoupanca conta= (ContaPoupanca) obj;
 		return (conta.cpfCliente.equals(this.cpfCliente));
 	}

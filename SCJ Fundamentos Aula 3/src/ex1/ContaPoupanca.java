@@ -5,15 +5,12 @@ public class ContaPoupanca extends ContaBancaria {
 		super(nomeCliente, endCliente, cpfCliente);
 	}
 
-	private int diaAniversario;
-
 	public void saque(double valor){
-		saldo-=valor-0.10;
+		saldo -= valor-0.10;
 	}
 	
 
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
 		ContaPoupanca conta= (ContaPoupanca) obj;
 		return (conta.cpfCliente.equals(this.cpfCliente));
 	}

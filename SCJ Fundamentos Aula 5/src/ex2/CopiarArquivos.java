@@ -10,20 +10,20 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.BasicFileAttributes;
 
-public class CopiarArquivos extends SimpleFileVisitor<Path>{
-	
+public class CopiarArquivos extends SimpleFileVisitor<Path> {
+
 	private Path destino;
 	private PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:*.txt");
-	
-	public CopiarArquivos(Path destino){
-		this.destino=destino;
+
+	public CopiarArquivos(Path destino) {
+		this.destino = destino;
 	}
-	
+
 	@Override
 	public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-		System.out.println("Procurando arquivos ("+file.getFileName()+")...");
-		if (matcher.matches(file.getFileName())){
-			System.out.println("Extensão encontrada ("+file.getFileName()+"). Copiando...");
+		System.out.println("Procurando arquivos (" + file.getFileName() + ")...");
+		if (matcher.matches(file.getFileName())) {
+			System.out.println("Extensão encontrada (" + file.getFileName() + "). Copiando...");
 			Files.copy(file, destino.resolve(file.getFileName()), StandardCopyOption.REPLACE_EXISTING);
 		}
 		return FileVisitResult.CONTINUE;
@@ -31,13 +31,12 @@ public class CopiarArquivos extends SimpleFileVisitor<Path>{
 
 	@Override
 	public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-		System.out.println("Falhou ");
 		return FileVisitResult.CONTINUE;
 	}
 
 	@Override
 	public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-		System.out.println("Buscando no diretório "+dir.getFileName()+"...");
+		System.out.println("Buscando no diretório " + dir.getFileName() + "...");
 		return FileVisitResult.CONTINUE;
 	}
 }

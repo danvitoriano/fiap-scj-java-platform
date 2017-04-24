@@ -5,8 +5,6 @@ public class ContaPoupanca extends ContaBancaria {
 		super(nomeCliente, endCliente, cpfCliente);
 	}
 
-	private int diaAniversario;
-
 	public void saque(double valor){
 		saldo-=valor-0.10;
 	}

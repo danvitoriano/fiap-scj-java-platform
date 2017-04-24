@@ -8,18 +8,18 @@ public enum ClassificacaoClientes {
 	private double faixaFinal;
 	
 	ClassificacaoClientes(double faixaInicial, double faixaFinal){
-		this.faixaInicial=faixaInicial;
-		this.faixaFinal=faixaFinal;
+		this.faixaInicial = faixaInicial;
+		this.faixaFinal = faixaFinal;
 	}
 	
 	public boolean isCompatible(ContaBancaria conta){
-    	if (conta.getSaldo()>=faixaInicial && conta.getSaldo()<=faixaFinal){
-    		System.out.println(this.name()+" Renda compatível.");
+    	if (conta.getSaldo() >= faixaInicial && conta.getSaldo() <= faixaFinal){
+    		System.out.println(this.name() + " Renda compatível.");
     		return true;
     	}
     	else
     	{
-    		System.out.println(this.name()+" Renda não compatível.");
+    		System.out.println(this.name() + " Renda não compatível.");
     		return false;
     	}
     }

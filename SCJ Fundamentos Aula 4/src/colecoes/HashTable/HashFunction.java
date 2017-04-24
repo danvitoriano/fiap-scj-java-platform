@@ -13,15 +13,10 @@ public class HashFunction {
 		HashFunction theFunc = new HashFunction(30);
 
 		// Simplest Hash Function
-
-		 String[] elementsToAdd = { "1", "5", "17", "21", "26" };
-
-		 theFunc.hashFunction1(elementsToAdd, theFunc.theArray);
-
+		String[] elementsToAdd = { "1", "5", "17", "21", "26" };
+		theFunc.hashFunction1(elementsToAdd, theFunc.theArray);
 
 		theFunc.findKey("26");
-
-
 
 	}
 
@@ -33,13 +28,9 @@ public class HashFunction {
 		for (int n = 0; n < stringsForArray.length; n++) {
 
 			String newElementVal = stringsForArray[n];
-
 			theArray[Integer.parseInt(newElementVal)] = newElementVal;
-
 		}
-
 	}
-
 
 	// Returns the value stored in the Hash Table
 
@@ -53,9 +44,7 @@ public class HashFunction {
 			if (theArray[arrayIndexHash] == key) {
 
 				// Found the key so return it
-				System.out.println(key + " was found in index "
-						+ arrayIndexHash);
-
+				System.out.println(key + " was found in index " + arrayIndexHash);
 				return theArray[arrayIndexHash];
 
 			}
@@ -71,20 +60,15 @@ public class HashFunction {
 		}
 
 		// Couldn't locate the key
-
 		return null;
 
 	}
 
-	HashFunction(int size) {
+	private HashFunction(int size) {
 
 		arraySize = size;
-
 		theArray = new String[size];
-
 		Arrays.fill(theArray, "-1");
-
-
 
 	}
 
