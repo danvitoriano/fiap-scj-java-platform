@@ -12,7 +12,7 @@ public class Dao {
 	protected PreparedStatement stmt;
 	protected ResultSet rs;
 	
-	private String url="jdbc:mysql://localhost:8889/persistencia_aula1";
+	private String url="jdbc:mysql://localhost:3307/vendas";
 	
 	protected void abrirConexao() throws SQLException{
 		cn = DriverManager.getConnection(url,"root","root");

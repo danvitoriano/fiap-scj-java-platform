@@ -22,7 +22,7 @@ public class CadastroClientes {
 			
 			List<Pedidos> pedidosCliente = new ArrayList<>();
 			
-			Clientes cliente = new Clientes("Jos√©", "j@jose.com", pedidosCliente);
+			Clientes cliente = new Clientes("Jo„o", "j@jose.com", pedidosCliente);
 			cliente=clientes.incluirCliente(cliente);
 			
 			pedidosCliente.add(new Pedidos(new Date(),"Materiais Gerais", 2000,cliente.getId()));
@@ -32,7 +32,7 @@ public class CadastroClientes {
 				pedido=pedidos.incluirPedido(pedido);
 			}
 			
-			System.out.println("Cadstrando Cliente Finalizado!");
+			System.out.println("Cadastrando Cliente Finalizado!");
 			
 		} catch (Exception e) {
 			e.printStackTrace();

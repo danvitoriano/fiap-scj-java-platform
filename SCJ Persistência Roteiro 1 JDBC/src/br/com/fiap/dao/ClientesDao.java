@@ -1,7 +1,7 @@
 package br.com.fiap.dao;
 
-import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,19 +35,46 @@ public class ClientesDao extends Dao {
 
 		abrirConexao();
 
-		String sql="SELECT ID,DATA,DESCRICAO,VALOR FROM PEDIDOS WHERE ID_CLIENTE=?";
+		String sql="SELECT IDPEDIDO,DATA,DESCRICAO,VALOR FROM PEDIDOS WHERE IDCLIENTE=?";
 		stmt = cn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		rs = stmt.executeQuery();
 		while (rs.next()){
 			pedidos.add(new Pedidos(rs.getDate("DATA"),rs.getString("DESCRICAO"), rs.getDouble("VALOR"),
-					rs.getInt("ID"), id));
+					rs.getInt("IDPEDIDO"), id));
 		}
 
-		sql="SELECT NOME,EMAIL FROM CLIENTES WHERE ID=?";
+		sql="SELECT NOME,EMAIL FROM CLIENTES WHERE IDCLIENTE=?";
 		stmt = cn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		rs = stmt.executeQuery();
+		if (rs.next()){
+			cliente = new Clientes(rs.getString("NOME"), rs.getString("EMAIL"), pedidos);
+		}
+
+		fecharConexao();
+
+		return cliente;
+	}
+	
+	//Exemplo de SQL Injection
+	public Clientes buscarClienteSqlInjection(String id) throws SQLException{
+		Clientes cliente = null;
+		List<Pedidos> pedidos = new ArrayList<>();
+
+		abrirConexao();
+
+		String sql="SELECT IDPEDIDO,DATA,DESCRICAO,VALOR FROM PEDIDOS WHERE IDCLIENTE="+id;
+		Statement st = cn.createStatement();
+		rs = st.executeQuery(sql);
+		while (rs.next()){
+			pedidos.add(new Pedidos(rs.getDate("DATA"),rs.getString("DESCRICAO"), rs.getDouble("VALOR"),
+					rs.getInt("IDPEDIDO"), Integer.valueOf(id)));
+		}
+
+		sql="SELECT NOME,EMAIL FROM CLIENTES WHERE IDCLIENTE="+id;
+		st = cn.createStatement();
+		rs = st.executeQuery(sql);
 		if (rs.next()){
 			cliente = new Clientes(rs.getString("NOME"), rs.getString("EMAIL"), pedidos);
 		}
