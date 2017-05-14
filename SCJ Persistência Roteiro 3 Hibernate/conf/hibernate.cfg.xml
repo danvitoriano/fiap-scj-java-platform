@@ -4,13 +4,13 @@
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.password">root</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:8889/persistencia_aula2?characterEncoding=UTF-8</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3307/persistencia_aula2?characterEncoding=UTF-8</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.current_session_context_class">thread</property>
-		<property name="hbm2ddl.auto">validate</property>
+		<property name="hbm2ddl.auto">update</property>
 		<!-- Mapeamento de Classes -->
 		<mapping class="br.fiap.roteiro3.entity.Forum" />
 		<mapping class="br.fiap.roteiro3.entity.Usuario" />

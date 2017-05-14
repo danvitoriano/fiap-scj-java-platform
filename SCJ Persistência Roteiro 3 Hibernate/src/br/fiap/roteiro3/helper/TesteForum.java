@@ -16,8 +16,8 @@ public class TesteForum {
 	private static void incluirForum(){
 		Forum forum = new Forum();
 		forum.setId(20);
-		forum.setAssunto("AvaliacÌ§aÌƒo"); 
-		forum.setDescricao("AvaliacÌ§aÌƒo da disciplina PersisteÌ‚ncia");
+		forum.setAssunto("Avaliação"); 
+		forum.setDescricao("Avaliação da disciplina Persistência");
 		ForumHelper helper = new ForumHelper(); 
 		System.out.println(helper.salvar(forum));
 	}
@@ -30,7 +30,7 @@ public class TesteForum {
 		u1.setId(10);
 		Usuario u2 = new Usuario();
 		u2.setNome("jonas"); 
-		u2.setEmail("joas@mail.com"); 
+		u2.setEmail("jonas@mail.com"); 
 		u2.setId(20);
 		Usuario u3 = new Usuario(); 
 		u3.setNome("abilio");
