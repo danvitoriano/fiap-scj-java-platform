@@ -12,20 +12,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="FORUM", schema = "forum") 
-public class Forum implements Serializable {
-
-	private static final long serialVersionUID = 1L; 
-	@Id
-	@Column(name = "IDFORUM")
-	private int id;
-
-	@Column(name = "ASSUNTO", length = 45) 
-	private String assunto;
-
-	@Column(name = "DESCRICAO", length = 45) 
-	private String descricao;
+	@Entity
+	@Table(name="FORUM") 
+	public class Forum implements Serializable {
+	
+		private static final long serialVersionUID = 1L; 
+		@Id
+		@Column(name = "IDFORUM")
+		private int id;
+	
+		@Column(name = "ASSUNTO", length = 45) 
+		private String assunto;
+	
+		@Column(name = "DESCRICAO", length = 45) 
+		private String descricao;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "forum") 
 	private Set<Usuario> usuarios = new HashSet<Usuario>();
