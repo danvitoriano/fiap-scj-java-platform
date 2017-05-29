@@ -1,6 +1,5 @@
 package br.fiap.roteiro3.helper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.fiap.roteiro3.entity.Forum;
@@ -18,7 +17,9 @@ public class TesteForum {
 		incluirUsuarionoForum(); 
 		listarUsuariosPorForum();
 		
-		helper.encerrar();
+		listarUsuariosCriteria();
+		listarUsuariosHql();
+		listarUsuariosNative();
 		
 	}
 
@@ -61,6 +62,33 @@ public class TesteForum {
 	private static void listarUsuariosPorForum(){ 
 		ForumHelper helper = new ForumHelper(); 
 		List<Usuario> usuarios = helper.listarUsuarios(2);
+		for(Usuario usuario: usuarios){
+			System.out.println("ID Usuario: " + usuario.getId()); System.out.println("Nome Usuario: " + usuario.getNome()); System.out.println("Email Usuario: " + usuario.getEmail()); System.out.println("--------------------------------");
+		} 
+	}
+	
+	private static void listarUsuariosCriteria(){ 
+		ForumHelper helper = new ForumHelper(); 
+		List<Usuario> usuarios = helper.listarUsuariosCriteria();
+		System.out.println("Consulta Modo Criteria");
+		for(Usuario usuario: usuarios){
+			System.out.println("ID Usuario: " + usuario.getId()); System.out.println("Nome Usuario: " + usuario.getNome()); System.out.println("Email Usuario: " + usuario.getEmail()); System.out.println("--------------------------------");
+		} 
+	}
+	
+	private static void listarUsuariosHql(){ 
+		ForumHelper helper = new ForumHelper(); 
+		List<Usuario> usuarios = helper.listarUsuariosHql();
+		System.out.println("Consulta Modo HQL");
+		for(Usuario usuario: usuarios){
+			System.out.println("ID Usuario: " + usuario.getId()); System.out.println("Nome Usuario: " + usuario.getNome()); System.out.println("Email Usuario: " + usuario.getEmail()); System.out.println("--------------------------------");
+		} 
+	}
+	
+	private static void listarUsuariosNative(){ 
+		ForumHelper helper = new ForumHelper(); 
+		List<Usuario> usuarios = helper.listarUsuariosNative();
+		System.out.println("Consulta Modo Nativo");
 		for(Usuario usuario: usuarios){
 			System.out.println("ID Usuario: " + usuario.getId()); System.out.println("Nome Usuario: " + usuario.getNome()); System.out.println("Email Usuario: " + usuario.getEmail()); System.out.println("--------------------------------");
 		} 
