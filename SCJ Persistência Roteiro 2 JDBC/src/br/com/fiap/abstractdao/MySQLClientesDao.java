@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.Statement;
+
 import br.com.fiap.entity.Clientes;
 import br.com.fiap.entity.Pedidos;
 
@@ -16,18 +18,26 @@ public class MySQLClientesDao implements ClientesDao{
 	ResultSet rs = null;
 
 	@Override
-	public void inserirCliente(Clientes cliente) throws Exception{
+	public Clientes inserirCliente(Clientes cliente) throws Exception{
 
 		try {
 			cn = MySQLDaoFactory.criarConexao();
-			stmt = cn.prepareStatement("INSERT INTO CLIENTES (ID, NOME, EMAIL) VALUES (?,?,?)");
-			stmt.setInt(1, cliente.getId()); stmt.setString(2, cliente.getNome()); stmt.setString(3, cliente.getEmail()); stmt.executeUpdate();
+			stmt = cn.prepareStatement("INSERT INTO CLIENTES (ID, NOME, EMAIL) VALUES (?,?,?)", Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, cliente.getNome()); 
+			stmt.setString(2, cliente.getEmail());
+			stmt.executeUpdate();
+			
+			rs = stmt.getGeneratedKeys();
+			while (rs.next()){
+				cliente.setId(rs.getInt(1));
+			}
 		} catch (Exception e) { 
 			throw e;
 		} finally { 
 			cn.close();
 			if (stmt != null) stmt.close();
 		} 
+		return cliente;
 	}
 	
 	@Override

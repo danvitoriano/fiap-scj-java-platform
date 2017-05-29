@@ -23,16 +23,16 @@ public class Main {
 			Clientes cliente = new Clientes();
 			cliente.setNome("Pedro Fontes");
 			cliente.setEmail("pedro@fontes.com");
-			clientesDao.inserirCliente(cliente);
+			cliente = clientesDao.inserirCliente(cliente);
 						
 			PedidosDao pedidosDao = DaoFactory.getDaoFactory(DaoFactory.MYSQL).getPedidosDao();
 			
 			
 			Pedidos pedido = new Pedidos();
 			pedido.setData(new Date());
-			pedido.setDescricao("Materiais EscritÃ³rio");
+			pedido.setDescricao("Materiais Escritório");
 			pedido.setValor(9000);
-			pedido.setIdCliente(7);
+			pedido.setIdCliente(cliente.getId());
 			
 			pedidosDao.incluirPedido(pedido);
 			
