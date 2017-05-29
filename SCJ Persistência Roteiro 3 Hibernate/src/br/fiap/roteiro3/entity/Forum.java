@@ -1,34 +1,36 @@
 package br.fiap.roteiro3.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-	@Entity
-	@Table(name="FORUM") 
-	public class Forum implements Serializable {
-	
-		private static final long serialVersionUID = 1L; 
-		@Id
-		@Column(name = "IDFORUM")
-		private int id;
-	
-		@Column(name = "ASSUNTO", length = 45) 
-		private String assunto;
-	
-		@Column(name = "DESCRICAO", length = 45) 
-		private String descricao;
+@Entity
+@Table(name="FORUM") 
+public class Forum implements Serializable {
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "forum") 
-	private Set<Usuario> usuarios = new HashSet<Usuario>();
+	private static final long serialVersionUID = 1L; 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "IDFORUM")
+	private int id;
+
+	@Column(name = "ASSUNTO", length = 45) 
+	private String assunto;
+
+	@Column(name = "DESCRICAO", length = 45) 
+	private String descricao;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "forum", orphanRemoval = true) 
+	@Column(name = "IDUSUARIO")
+	private List<Usuario> usuarios;
 
 	public int getId() { return id;
 	}
@@ -51,11 +53,11 @@ import javax.persistence.Table;
 		this.descricao = descricao; 
 	}
 
-	public Set<Usuario> getUsuarios() { 
+	public List<Usuario> getUsuarios() { 
 		return usuarios;
 	}
 
-	public void setUsuarios(Set<Usuario> usuarios) {
+	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios; 
 	}
 }

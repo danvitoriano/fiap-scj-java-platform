@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,11 +18,12 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L; 
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "IDUSUARIO")
-	private int id;
+	private Integer id;
 
-	@ManyToOne(fetch = FetchType.LAZY) 
-	@JoinColumn(name = "IDFORUM") 
+	@ManyToOne
+	@JoinColumn(name = "IDFORUM")
 	private Forum forum;
 
 	@Column(name = "NOME") 
@@ -30,10 +32,10 @@ public class Usuario implements Serializable {
 	@Column(name = "EMAIL")
 	private String email;
 
-	public int getId() { return id;
+	public Integer getId() { return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id; 
 	}
 
