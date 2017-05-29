@@ -6,17 +6,16 @@
 	<classpathentry kind="lib" path="lib/antlr-2.7.7.jar"/>
 	<classpathentry kind="lib" path="lib/classmate-1.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="lib/ehcache-2.10.1.jar"/>
-	<classpathentry kind="lib" path="lib/geronimo-jta_1.1_spec-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-commons-annotations-5.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core-5.1.0.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-ehcache-5.1.0.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-java8-5.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-core-5.2.10.Final.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="lib/jandex-2.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/jandex-2.0.3.Final.jar"/>
 	<classpathentry kind="lib" path="lib/javassist-3.20.0-GA.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-transaction-api_1.2_spec-1.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.38-bin.jar"/>
+	<classpathentry kind="lib" path="lib/ehcache-2.10.3.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-ehcache-5.2.10.Final.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
