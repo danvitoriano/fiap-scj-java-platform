@@ -14,14 +14,13 @@ public class ClientesDao extends Dao {
 		abrirConexao();
 
 		String sql="INSERT INTO CLIENTES (NOME,EMAIL) VALUES (?,?)";
-		stmt = cn.prepareStatement(sql);
+		stmt = cn.prepareStatement(sql,  Statement.RETURN_GENERATED_KEYS);
 		stmt.setString(1, cliente.getNome());
 		stmt.setString(2, cliente.getEmail());
 		stmt.execute();
 		
-		sql="SELECT LAST_INSERT_ID()";
-		stmt = cn.prepareStatement(sql);
-		rs = stmt.executeQuery();
+		//Chave gerada (Identity Keys)
+		rs = stmt.getGeneratedKeys();
 		if (rs.next()){
 			cliente.setId(rs.getInt(1));
 		}
@@ -43,7 +42,7 @@ public class ClientesDao extends Dao {
 			pedidos.add(new Pedidos(rs.getDate("DATA"),rs.getString("DESCRICAO"), rs.getDouble("VALOR"),
 					rs.getInt("IDPEDIDO"), id));
 		}
-
+				
 		sql="SELECT NOME,EMAIL FROM CLIENTES WHERE IDCLIENTE=?";
 		stmt = cn.prepareStatement(sql);
 		stmt.setInt(1, id);

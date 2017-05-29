@@ -2,6 +2,7 @@ package br.com.fiap.dao;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import br.com.fiap.entity.Pedidos;
 
@@ -10,17 +11,16 @@ public class PedidosDao extends Dao {
 	public Pedidos incluirPedido(Pedidos pedido) throws SQLException {
 		abrirConexao();
 		
-		String sql="INSERT INTO PEDIDOS (ID_CLIENTE,DATA,DESCRICAO,VALOR) VALUES (?,?,?,?)";
-		stmt = cn.prepareStatement(sql);
+		String sql="INSERT INTO PEDIDOS (IDCLIENTE,DATA,DESCRICAO,VALOR) VALUES (?,?,?,?)";
+		stmt = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		stmt.setInt(1, pedido.getIdCliente());
 		stmt.setDate(2, new Date(pedido.getData().getTime()));
 		stmt.setString(3, pedido.getDescricao());
 		stmt.setDouble(4, pedido.getValor());
 		stmt.execute();
 		
-		sql="SELECT LAST_INSERT_ID()";
-		stmt = cn.prepareStatement(sql);
-		rs = stmt.executeQuery();
+		//Chave gerada (Identity Keys)
+		rs = stmt.getGeneratedKeys();
 		if (rs.next()){
 			pedido.setId(rs.getInt(1));
 		}
@@ -32,13 +32,13 @@ public class PedidosDao extends Dao {
 		Pedidos pedido = null;
 		abrirConexao();
 		
-		String sql="SELECT ID_CLIENTE,DATA,DESCRICAO,VALOR FROM PEDIDOS WHERE ID=?";
+		String sql="SELECT IDCLIENTE,DATA,DESCRICAO,VALOR FROM PEDIDOS WHERE ID=?";
 		stmt = cn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		rs = stmt.executeQuery();
 		if (rs.next()){
 			pedido=new Pedidos(rs.getDate("DATA"),rs.getString("DESCRICAO"), rs.getDouble("VALOR"),
-					id, rs.getInt("ID_CLIENTE"));
+					id, rs.getInt("IDCLIENTE"));
 		}
 		
 		fecharConexao();
