@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -29,27 +31,47 @@ public class Cliente implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="cliente")
 	private Set<Endereco> enderecos = new LinkedHashSet<Endereco>();
+		
+	@Enumerated(EnumType.STRING)
+	private StatusCliente status;
+	
+		
+	public StatusCliente getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusCliente status) {
+		this.status = status;
+	}
+
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getEmpresa() {
 		return empresa;
 	}
+	
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa; 
 	}
+	
 	public Set<Pedido> getPedidos() {
 		return pedidos;
 	}
+	
 	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+	
 	public Set<Endereco> getEnderecos() {
 		return enderecos;
 	}
+	
 	public void setEnderecos(Set<Endereco> enderecos) {
 		this.enderecos = enderecos;
 	}

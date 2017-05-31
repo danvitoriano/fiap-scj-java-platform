@@ -10,6 +10,7 @@ import br.com.fiap.entity.Cliente;
 import br.com.fiap.entity.Endereco;
 import br.com.fiap.entity.Item;
 import br.com.fiap.entity.Pedido;
+import br.com.fiap.entity.StatusCliente;
 import br.com.fiap.helper.VendasHelper;
 import br.com.fiap.pk.PedidosPK;
 
@@ -24,6 +25,7 @@ public class TestaAplicacao {
 			//Definindo o cliente
 			Cliente cliente = new Cliente(); 
 			cliente.setId(10); 
+			cliente.setStatus(StatusCliente.ATIVO);
 			cliente.setEmpresa("Fiap");
 			
 			//Definindo o Endereco
