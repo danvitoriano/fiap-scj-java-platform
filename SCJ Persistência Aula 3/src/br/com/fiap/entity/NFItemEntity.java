@@ -1,4 +1,4 @@
-package core;
+package br.com.fiap.entity;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;

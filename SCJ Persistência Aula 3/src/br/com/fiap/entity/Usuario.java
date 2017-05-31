@@ -1,4 +1,4 @@
-package br.fiap;
+package br.com.fiap.entity;
 
 import java.io.Serializable;
 

@@ -13,7 +13,7 @@ import br.com.fiap.helper.Helper;
 public class Teste {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("SCJ Persistencia Roteiro 6 JPA");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("SCJ Persistência Roteiro 6 JPA");
 
 		EntityManager em = emf.createEntityManager();
 		incluirFuncionario(em);
@@ -28,7 +28,7 @@ public class Teste {
 		funcionario.setMatricula("2000"); 
 		funcionario.setNome("Alberto Santos");
 		Tarefa tarefa = new Tarefa(); 
-		tarefa.setDescricao("Teste UnitÃ¡rio"); 
+		tarefa.setDescricao("Teste Unitário"); 
 		tarefa.setDuracao(100); 
 		tarefa.getFuncionarios().add(funcionario);
 		funcionario.getTarefas().add(tarefa); 

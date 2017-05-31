@@ -83,8 +83,7 @@ public class ForumHelper {
 	public List<Usuario> listarUsuarios(int idForum){ 
 		List<Usuario> usuarios = new ArrayList<Usuario>(); 
 		try {
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
-			transaction = session.beginTransaction();
+			session = HibernateUtil.getSessionFactory().openSession();
 			Forum f = (Forum) session.load(Forum.class, idForum);
 			usuarios = f.getUsuarios();
 		} catch (Exception e) {
@@ -97,7 +96,7 @@ public class ForumHelper {
 	public List<Usuario> listarUsuariosCriteria(){ 
 		List<Usuario> usuarios = new ArrayList<>();
 		try {
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session = HibernateUtil.getSessionFactory().openSession();
 			usuarios  = session.createCriteria(Usuario.class)
 					.add( Restrictions.in( "nome", "paulo" ) )
 					.add( Restrictions.disjunction()
@@ -115,7 +114,7 @@ public class ForumHelper {
 	public List<Usuario> listarUsuariosHql(){ 
 		List<Usuario> usuarios = new ArrayList<>();
 		try {
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session = HibernateUtil.getSessionFactory().openSession();
 			Query query = 
 					session.createQuery("from Usuario where nome = :nome and (email is not null and email like :email) ");
 
@@ -134,7 +133,7 @@ public class ForumHelper {
 	public List<Usuario> listarUsuariosNative(){ 
 		List<Usuario> usuarios = new ArrayList<>();
 		try {
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session = HibernateUtil.getSessionFactory().openSession();
 			Query queryN = session.createSQLQuery(
 					"select * from usuario u where u.nome = :nome and u.email is not null and email like :email")
 					.addEntity(Usuario.class)

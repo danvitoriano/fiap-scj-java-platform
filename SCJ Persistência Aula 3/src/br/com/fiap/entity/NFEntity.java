@@ -1,4 +1,4 @@
-package core;
+package br.com.fiap.entity;
 
 import java.util.Collection;
 

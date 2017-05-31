@@ -42,6 +42,7 @@ public class Funcionario implements Serializable {
 	
 	@ManyToMany(fetch=FetchType.LAZY, cascade= CascadeType.ALL) 
 	@JoinTable(name="FUNCIONARIO_TAREFA", catalog="DBTarefa", 
+	
 	joinColumns = {@JoinColumn(name="FUNCIONARIO_ID", nullable=false, updatable=false)}, 
 	inverseJoinColumns = {@JoinColumn(name="TAREFA_ID", nullable=false,	updatable=false)})
 	

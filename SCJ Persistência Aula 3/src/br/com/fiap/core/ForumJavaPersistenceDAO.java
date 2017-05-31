@@ -1,12 +1,12 @@
-package core;
+package br.com.fiap.core;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.fiap.Forum;
-import br.fiap.Usuario;
+import br.com.fiap.entity.Forum;
+import br.com.fiap.entity.Usuario;
 
 public class ForumJavaPersistenceDAO {
 
@@ -16,7 +16,7 @@ public class ForumJavaPersistenceDAO {
 		this.em = em;
 	}
 
-	public Forum createForum(String assunto, String descricao){
+	public Forum criarForum(String assunto, String descricao){
 		Forum forum = new Forum();
 		forum.setDescricao(descricao);
 		forum.setAssunto(assunto);
@@ -25,7 +25,8 @@ public class ForumJavaPersistenceDAO {
 		em.getTransaction().commit();
 		return forum;
 	}
-	public Usuario createUsuario(String nome,String email){
+	
+	public Usuario criarUsuario(String nome,String email){
 		Usuario usuario = new Usuario();
 		usuario.setNome(nome);
 		usuario.setEmail(email);
@@ -35,14 +36,14 @@ public class ForumJavaPersistenceDAO {
 		return usuario;
 	}
 
-	public Forum findForum(int id){
+	public Forum buscarForum(int id){
 		return em.find(Forum.class, id);
 	}
-	public Usuario findUsuario(int id){
+	public Usuario buscarUsuario(int id){
 		return em.find(Usuario.class, id);
 	}
 	public Forum changeDescricaoForum(int id, String descricao){
-		Forum forum = this.findForum(id);
+		Forum forum = this.buscarForum(id);
 		forum.setDescricao(descricao);
 		em.getTransaction().begin();
 		em.persist(forum);
@@ -51,7 +52,7 @@ public class ForumJavaPersistenceDAO {
 	}
 
 	public void deleteForum(int id){
-		Forum forum = this.findForum(id);
+		Forum forum = this.buscarForum(id);
 		em.remove(forum);
 		em.getTransaction().begin();
 		em.persist(forum);
@@ -61,6 +62,7 @@ public class ForumJavaPersistenceDAO {
 		if (forum.getUsuarios()==null){
 			forum.setUsuarios(new ArrayList<Usuario>());
 		}
+		
 		forum.getUsuarios().add(usuario);
 		em.getTransaction().begin();
 		em.persist(forum);
@@ -68,7 +70,7 @@ public class ForumJavaPersistenceDAO {
 		return forum;
 	}
 	public List<Usuario> listUsuariosFromForum(int id){
-		List<Usuario> usuarios = this.findForum(id).getUsuarios();
+		List<Usuario> usuarios = this.buscarForum(id).getUsuarios();
 		return usuarios;
 	}
 	public void closeEntityManager() {

@@ -1,4 +1,4 @@
-package core;
+package br.com.fiap.entity;
 
 import java.util.Date;
 
@@ -7,14 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-@Entity 
-//MYSQL NÃO TEM GERADORES
+
+//MYSQL N�O TEM GERADORES
 //@SequenceGenerator(name="cliente", sequenceName="SEQ_CLIENTE",  allocationSize=1)
 @Table(name="TAB_CLIENTE")
 public class ClienteEntity {
@@ -29,5 +28,5 @@ public class ClienteEntity {
 	@Temporal(value=TemporalType.DATE)
 	private Date dataNascimento;
 	private String nome;
-	// métodos get e set
+	// get e set
 } 

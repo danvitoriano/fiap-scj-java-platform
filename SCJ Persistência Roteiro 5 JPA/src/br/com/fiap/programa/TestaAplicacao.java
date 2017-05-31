@@ -52,7 +52,7 @@ public class TestaAplicacao {
 			item2.setQuantidade(3);
 			item2.setPedido(pedido);
 			
-			//Fazendo as associações
+			//Fazendo as associacÌ§oÌƒes
 			pedido.getItens().add(item1); 
 			pedido.getItens().add(item2);
 			
@@ -61,7 +61,7 @@ public class TestaAplicacao {
 			
 			dao.salvar(cliente);
 			
-			System.out.println("Cliente incluído com sucesso!");
+			System.out.println("Cliente incluído com sucesso!");
 		}
 		catch (Exception e) {
 			e.printStackTrace();

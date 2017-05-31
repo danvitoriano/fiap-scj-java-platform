@@ -14,7 +14,7 @@ public class TesteForum {
 	public static void main(String[] args) {
 	
 		EntityManagerFactory entityManagerFactory =
-				Persistence.createEntityManagerFactory("SCJ PersistÃªncia Aula 4 JPA");
+				Persistence.createEntityManagerFactory("SCJ Persistência Aula 4 JPA");
 		EntityManager entityManager =
 				entityManagerFactory.createEntityManager();
 		
