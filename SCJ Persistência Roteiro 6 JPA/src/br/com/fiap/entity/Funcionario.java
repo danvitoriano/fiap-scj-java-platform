@@ -15,11 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
+import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="FUNCIONARIO", catalog="DBTarefa", uniqueConstraints =
@@ -27,7 +25,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 		@UniqueConstraint(columnNames="CODIGO_FUNCIONARIO")
 })
 
-@NamedQuery(name="Funcionario.findAll", query="select f from Funcionario f")
+@NamedQuery(name="Funcionario.findAll", query="select f from Funcionario f", 
+hints = { @QueryHint(name = "org.hibernate.cacheable", value = "true") })
 //@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 
 public class Funcionario implements Serializable {

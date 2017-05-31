@@ -1,5 +1,7 @@
 package br.com.fiap.core;
 
+import java.util.Date;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -18,6 +20,11 @@ public class Main {
 				Persistence.createEntityManagerFactory("SCJ Persistência Aula 3");
 		EntityManager entityManager =
 				entityManagerFactory.createEntityManager();
+		
+		
+		ClienteJavaPersistenceDAO c1 = new ClienteJavaPersistenceDAO(entityManager);
+		c1.criarCliente("José" , 1234, new Date());
+		
 		
 		AlunoJavaPersistenceDAO p1 = new AlunoJavaPersistenceDAO(entityManager);
 		

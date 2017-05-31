@@ -11,6 +11,7 @@
 		<class>br.com.fiap.entity.Aluno</class>
 		<class>br.com.fiap.entity.Matricula</class>
 		<class>br.com.fiap.entity.MatriculaId</class>
+		<class>br.com.fiap.entity.Cliente</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/FIAP" />
 			<property name="javax.persistence.jdbc.user" value="root" />
