@@ -15,7 +15,8 @@
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
 		</properties>
 	</persistence-unit>
 </persistence>

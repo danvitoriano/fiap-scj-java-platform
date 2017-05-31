@@ -18,6 +18,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name="FUNCIONARIO", catalog="DBTarefa", uniqueConstraints =
 {
@@ -25,6 +28,7 @@ import javax.persistence.UniqueConstraint;
 })
 
 @NamedQuery(name="Funcionario.findAll", query="select f from Funcionario f")
+//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 
 public class Funcionario implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -1,5 +1,7 @@
 package br.com.fiap.programa;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,8 +20,17 @@ public class Teste {
 		EntityManager em = emf.createEntityManager();
 		incluirFuncionario(em);
 		em = emf.createEntityManager();
+		LocalDateTime inicio = LocalDateTime.now();
 		listarFuncionarios(em);
 		buscarFuncionario(em, "2000");
+		LocalDateTime fim = LocalDateTime.now();
+		System.out.println(ChronoUnit.MILLIS.between(inicio, fim));
+		
+		inicio = LocalDateTime.now();
+		listarFuncionarios(em);
+		buscarFuncionario(em, "2000");
+		fim = LocalDateTime.now();
+		System.out.println(ChronoUnit.MILLIS.between(inicio, fim));
 	}
 	
 	private static void incluirFuncionario(EntityManager em){ 
