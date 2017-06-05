@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,48 +18,58 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Table(name="TAREFA", catalog="DBTarefa") 
-//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Table(name = "TAREFA", catalog = "DBTarefa")
 
-public class Tarefa implements Serializable{
-	
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region="func")
+
+public class Tarefa implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	@Column(name="ID", unique=true, nullable=false) 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", unique = true, nullable = false)
 	private Integer id;
-	
-	@Column(name = "DESCRICAO", nullable = false, length=45) 
+
+	@Column(name = "DESCRICAO", nullable = false, length = 45)
 	private String descricao;
-	
-	@Column(name = "DURACAO", nullable = false) 
+
+	@Column(name = "DURACAO", nullable = false)
 	private Integer duracao;
-	
-	@ManyToMany(fetch=FetchType.LAZY, mappedBy="tarefas") 
+
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "tarefas")
 	private Set<Funcionario> funcionarios = new HashSet<>();
-	
-	public Integer getId() { return id;
+
+	public Integer getId() {
+		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
-		this.descricao = descricao; 
+		this.descricao = descricao;
 	}
+
 	public Integer getDuracao() {
 		return duracao;
 	}
+
 	public void setDuracao(Integer duracao) {
 		this.duracao = duracao;
 	}
+
 	public Set<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
+
 	public void setFuncionarios(Set<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
-	} 
+	}
 }

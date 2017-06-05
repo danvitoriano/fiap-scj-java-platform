@@ -5,6 +5,7 @@
 	<persistence-unit name="SCJ Persistência Roteiro 6 JPA">
 		<class>br.com.fiap.entity.Funcionario</class>
 		<class>br.com.fiap.entity.Tarefa</class>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action"
 				value="drop-and-create" />
@@ -16,7 +17,13 @@
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+			 <property name="hibernate.cache.use_second_level_cache" value="true"/>
+			<property name="hibernate.cache.region.factory_class"
+				value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />
+			<property name="hibernate.cache.use_query_cache" value="true"/>
+			<property name="net.sf.ehcache.configurationResourceName"
+				value="ehcache.xml" />
+
 		</properties>
 	</persistence-unit>
 </persistence>

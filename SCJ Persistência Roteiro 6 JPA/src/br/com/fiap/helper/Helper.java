@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
 import br.com.fiap.entity.Funcionario;
+import br.com.fiap.entity.Tarefa;
 
 public class Helper {
 	private EntityManager em;
@@ -20,10 +22,8 @@ public class Helper {
 			em.getTransaction().commit();
 		} 
 		catch (Exception e) {
-			throw e;
-		} finally { 
-			em.close();
-		} 
+			e.printStackTrace();
+		}
 	}
 	
 	//JPQL: Usando Query
@@ -49,6 +49,16 @@ public class Helper {
 		//tQuery.setParameter("matricula", numMatricula); 
 		//return tQuery.getSingleResult(); 
 		
+	}
+	
+	public Funcionario buscarFuncionario(int id){
+		Funcionario funcionario = this.em.find(Funcionario.class, id);
+		return funcionario;
+	}
+	
+	public Tarefa buscarTarefa(int id){
+		Tarefa tarefa = this.em.find(Tarefa.class, id);
+		return tarefa;
 	}
 	
 	//JPQL: usando NamedQuery
