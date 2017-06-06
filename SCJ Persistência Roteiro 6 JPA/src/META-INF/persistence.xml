@@ -20,13 +20,11 @@
 			<property name="hibernate.show_sql" value="true" />
 <!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" /> -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-			<property name="hibernate.cache.use_second_level_cache"
-				value="true" />
+			<property name="hibernate.cache.use_second_level_cache"	value="true" />
 			<property name="hibernate.cache.region.factory_class"
 				value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />
 			<property name="hibernate.cache.use_query_cache" value="true" />
-			<property name="net.sf.ehcache.configurationResourceName"
-				value="ehcache.xml" />
+			<property name="net.sf.ehcache.configurationResourceName" value="ehcache.xml" />
 		</properties>
 	</persistence-unit>
 </persistence>
