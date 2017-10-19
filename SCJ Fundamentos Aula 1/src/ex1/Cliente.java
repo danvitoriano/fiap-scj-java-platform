@@ -18,7 +18,7 @@ public class Cliente {
 	
 	public Cliente(String numeroRg, String numeroCpf, String endereco, String nome){
 		this(numeroRg);
-		this.numeroRg=numeroCpf;
+		this.numeroCpf=numeroCpf;
 		this.endereco=endereco;
 		this.nome=nome;
 	}
