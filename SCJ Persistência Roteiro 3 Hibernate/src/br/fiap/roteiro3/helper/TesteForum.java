@@ -25,8 +25,8 @@ public class TesteForum {
 
 	private static void incluirForum(){
 		Forum forum = new Forum();
-		forum.setAssunto("Avaliação"); 
-		forum.setDescricao("Avaliação da disciplina Persistência");
+		forum.setAssunto("AvaliaÃ§Ã£o"); 
+		forum.setDescricao("AvaliaÃ§Ã£o da disciplina PersistÃªncia");
 		System.out.println(helper.salvar(forum));
 	}
 
