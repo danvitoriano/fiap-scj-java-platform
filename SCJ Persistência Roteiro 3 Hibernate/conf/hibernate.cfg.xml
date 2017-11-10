@@ -7,11 +7,16 @@
 		<!--  Adicionar, se preciso o encoding ?characterEncoding=UTF-8; -->
 		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/persistencia_aula2?useSSL=false&amp;createDatabaseIfNotExist=true</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		<property name="hbm2ddl.auto">create</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="hibernate.cache">trace</property>
 		<!-- Mapeamento de Classes -->
 		<mapping class="br.fiap.roteiro3.entity.Forum" />
 		<mapping class="br.fiap.roteiro3.entity.Usuario" />

@@ -3,11 +3,9 @@ package br.fiap.roteiro3.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 
 import br.fiap.roteiro3.config.HibernateUtil;
 import br.fiap.roteiro3.entity.Forum;
@@ -40,7 +38,7 @@ public class ForumHelper {
 			transaction = session.beginTransaction();
 			session.save(usuario);
 			transaction.commit();
-			return "Usu·rio salvo"; 
+			return "Usu√°rio salvo"; 
 		}catch(Exception e){
 			return e.getMessage(); 
 		}
@@ -56,7 +54,7 @@ public class ForumHelper {
 			session.save(f);
 			transaction.commit();
 
-			return "AssociaÁ„o realizada";
+			return "Associa√ß√£o realizada";
 
 		} catch(Exception e){ 
 			return e.getMessage();
@@ -73,7 +71,7 @@ public class ForumHelper {
 			session.update(f); 
 			transaction.commit();
 
-			return "Inclus„o realizada";
+			return "Inclus√£o realizada";
 
 		} catch(Exception e){ 
 			return e.getMessage();
@@ -92,34 +90,19 @@ public class ForumHelper {
 		return usuarios;
 	} 
 
-	@SuppressWarnings("unchecked")
-	public List<Usuario> listarUsuariosCriteria(){ 
-		List<Usuario> usuarios = new ArrayList<>();
-		try {
-			session = HibernateUtil.getSessionFactory().openSession();
-			usuarios  = session.createCriteria(Usuario.class)
-					.add( Restrictions.in( "nome", "paulo" ) )
-					.add( Restrictions.disjunction()
-							.add( Restrictions.isNotNull("email") )
-							.add( Restrictions.like("email", "@", MatchMode.ANYWHERE ) )
-							) 
-					.list();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return usuarios;
-	} 
-
+	
 	@SuppressWarnings("unchecked")
 	public List<Usuario> listarUsuariosHql(){ 
 		List<Usuario> usuarios = new ArrayList<>();
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
-			Query query = 
+			
+			Query<Usuario> query = 
 					session.createQuery("from Usuario where nome = :nome and (email is not null and email like :email) ");
 
 			query.setParameter("nome", "paulo");
 			query.setParameter("email", "%@%");
+			query.setCacheable(true);
 
 			usuarios = query.list();
 
@@ -130,15 +113,15 @@ public class ForumHelper {
 	} 
 
 	@SuppressWarnings("unchecked")
-	public List<Usuario> listarUsuariosNative(){ 
-		List<Usuario> usuarios = new ArrayList<>();
+	public List<Object[]> listarUsuariosNative(){ 
+		List<Object[]> usuarios = new ArrayList<>();
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
-			Query queryN = session.createSQLQuery(
+			Query<Object[]> queryN = session.createNativeQuery(
 					"select * from usuario u where u.nome = :nome and u.email is not null and email like :email")
-					.addEntity(Usuario.class)
 					.setParameter("nome", "paulo")
 					.setParameter("email", "%@%");
+					
 			usuarios = queryN.list();
 
 
