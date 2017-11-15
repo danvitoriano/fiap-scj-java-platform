@@ -32,7 +32,7 @@ public class PedidosDao extends Dao {
 		Pedidos pedido = null;
 		abrirConexao();
 		
-		String sql="SELECT IDCLIENTE,DATA,DESCRICAO,VALOR FROM PEDIDOS WHERE ID=?";
+		String sql="SELECT IDCLIENTE,DATA,DESCRICAO,VALOR FROM PEDIDOS WHERE IDPEDIDO=?";
 		stmt = cn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		rs = stmt.executeQuery();
