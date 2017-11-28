@@ -9,27 +9,27 @@ public class TestePerformance {
 
 	public static void main(String[] args) {
 
-		ArrayList<Integer> lista1 = new ArrayList<>();
-		LinkedList<Integer> lista2 = new LinkedList<>();
+		ArrayList<String> lista1 = new ArrayList<>();
+		LinkedList<String> lista2 = new LinkedList<>();
 
 		LocalDateTime inicio = LocalDateTime.now();
 
 		for (int i = 1; i <= 1000000; i++) {
-			lista1.add(i);
+			lista1.add("String: " + i);
 		}
 
 		LocalDateTime fim = LocalDateTime.now();
 
 		long tempoInsercao = ChronoUnit.MILLIS.between(inicio, fim);
-		System.out.println("Tempo de InserÃ§Ã£o [ArrayList]: " + tempoInsercao);
+		System.out.println("Tempo de Inserção [ArrayList]: " + tempoInsercao);
 
 		inicio = LocalDateTime.now();
 		for (int i = 1; i <= 1000000; i++) {
-			lista2.add(i);
+			lista2.add("String: " + i);
 		}
 		fim = LocalDateTime.now();
 		tempoInsercao = ChronoUnit.MILLIS.between(inicio, fim);
-		System.out.println("Tempo de InserÃ§Ã£o [LinkedList]: " + tempoInsercao);
+		System.out.println("Tempo de Inserção [LinkedList]: " + tempoInsercao);
 
 		inicio = LocalDateTime.now();
 		lista1.get(500000);
