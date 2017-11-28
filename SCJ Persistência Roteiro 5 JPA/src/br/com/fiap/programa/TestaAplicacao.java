@@ -17,7 +17,7 @@ import br.com.fiap.pk.PedidosPK;
 public class TestaAplicacao {
 	public static void main(String[] args) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("SCJ Persistência Roteiro 5 JPA");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("SCJ Persistência Aula 5 JPA");
 		EntityManager em = emf.createEntityManager();
 		VendasHelper dao = new VendasHelper(em);
 
@@ -63,10 +63,15 @@ public class TestaAplicacao {
 			
 			dao.salvar(cliente);
 			
+			
 			System.out.println("Cliente incluído com sucesso!");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
+		finally {
+			em.close();
+			emf.close();
+		}
 	}
 }

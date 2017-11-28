@@ -20,9 +20,14 @@ public class ForumHelper {
 		session.close();
 	}
 
+	private Session getSession() {
+		session = HibernateUtil.getSessionFactory().getCurrentSession();
+		return session;
+	}
+	
 	public String salvar(Forum forum){ 
 		try{
-			session = HibernateUtil.getSessionFactory().getCurrentSession(); 
+			session = getSession();
 			transaction = session.beginTransaction();
 			session.save(forum);
 			transaction.commit();
@@ -34,7 +39,7 @@ public class ForumHelper {
 
 	public String salvar(Usuario usuario){ 
 		try{
-			session = HibernateUtil.getSessionFactory().getCurrentSession(); 
+			session = getSession();
 			transaction = session.beginTransaction();
 			session.save(usuario);
 			transaction.commit();
@@ -46,7 +51,7 @@ public class ForumHelper {
 
 	public String adicionarUsuario(int idForum, int idUsuario){ 
 		try {
-			session = HibernateUtil.getSessionFactory().getCurrentSession(); 
+			session = getSession();
 			transaction = session.beginTransaction();
 			Forum f = (Forum) session.load(Forum.class, idForum);
 			Usuario u = (Usuario) session.load(Usuario.class, idForum);
@@ -63,7 +68,7 @@ public class ForumHelper {
 
 	public String adicionarUsuario(int idForum, Usuario usuario){ 
 		try {
-			session = HibernateUtil.getSessionFactory().getCurrentSession(); 
+			session = getSession();
 			transaction = session.beginTransaction();
 			Forum f = (Forum) session.load(Forum.class, idForum);
 			usuario.setForum(f);
@@ -81,7 +86,7 @@ public class ForumHelper {
 	public List<Usuario> listarUsuarios(int idForum){ 
 		List<Usuario> usuarios = new ArrayList<Usuario>(); 
 		try {
-			session = HibernateUtil.getSessionFactory().openSession();
+			session = getSession();
 			Forum f = (Forum) session.load(Forum.class, idForum);
 			usuarios = f.getUsuarios();
 		} catch (Exception e) {

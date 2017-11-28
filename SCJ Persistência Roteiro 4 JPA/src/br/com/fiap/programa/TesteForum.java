@@ -14,7 +14,7 @@ public class TesteForum {
 	public static void main(String[] args) {
 	
 		EntityManagerFactory entityManagerFactory =
-				Persistence.createEntityManagerFactory("SCJ Persistência Aula 4 JPA");
+				Persistence.createEntityManagerFactory("SCJ PersistÃªncia Aula 4 JPA");
 		EntityManager entityManager =
 				entityManagerFactory.createEntityManager();
 		
@@ -27,5 +27,8 @@ public class TesteForum {
 		usuario.setNome("Joaquim"); 
 		usuario.setEmail("joaquim@fiap.com.br");
 		System.out.println(dao.adicionarUsuario(forum.getId(), usuario));
+		
+		entityManager.close();
+		entityManagerFactory.close();
 	} 
 }

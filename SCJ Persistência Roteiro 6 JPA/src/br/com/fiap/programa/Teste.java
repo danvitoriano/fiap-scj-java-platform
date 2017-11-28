@@ -16,7 +16,7 @@ import br.com.fiap.helper.Helper;
 public class Teste {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("SCJ PersistÍncia Roteiro 6 JPA");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("SCJ Persist√™ncia Roteiro 6 JPA");
 		EntityManager em = emf.createEntityManager();
 		Cache cache = emf.getCache();
 				
@@ -24,7 +24,7 @@ public class Teste {
 		
 		Funcionario funcionario = new Funcionario();
 		funcionario.setMatricula("12345");
-		funcionario.setNome("Andre GonÁalves");
+		funcionario.setNome("Andre Gon√ßalves");
 		
 		Tarefa tarefa = new Tarefa();
 		tarefa.setDescricao("Desenvolvimento Front-End");
@@ -33,31 +33,31 @@ public class Teste {
 		
 		incluirFuncionario(em, funcionario, tarefa);
 		em.close();
-		System.out.println("Funcionario "+funcionario.getNome()+ " est· em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
+		System.out.println("Funcionario "+funcionario.getNome()+ " est√° em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
 		 em = emf.createEntityManager();
 		buscarFuncionario(em, funcionario);
-		System.out.println("Funcionario "+funcionario.getNome()+ " est· em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
+		System.out.println("Funcionario "+funcionario.getNome()+ " est√° em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
 		buscarFuncionario(em, funcionario);
 		buscarFuncionario(em, funcionario);
 		buscarFuncionario(em, funcionario);
 		buscarFuncionario(em, funcionario);
-		System.out.println("Funcionario "+funcionario.getNome()+ " est· em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
+		System.out.println("Funcionario "+funcionario.getNome()+ " est√° em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
 		
 		buscarFuncionario(em, funcionario);
 		buscarTarefa(em, tarefa);
 		
-		System.out.println("Funcionario "+funcionario.getNome()+ " est· em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
+		System.out.println("Funcionario "+funcionario.getNome()+ " est√° em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
 		
 		em = emf.createEntityManager();
 		LocalDateTime inicio = LocalDateTime.now();
 		listarFuncionarios(em);
 		
-		System.out.println("Funcionario "+funcionario.getNome()+ " est· em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
+		System.out.println("Funcionario "+funcionario.getNome()+ " est√° em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
 		
 		
 		buscarFuncionario(em, "2000");
 		
-		System.out.println("Funcionario "+funcionario.getNome()+ " est· em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
+		System.out.println("Funcionario "+funcionario.getNome()+ " est√° em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
 		
 		
 		LocalDateTime fim = LocalDateTime.now();
@@ -69,10 +69,11 @@ public class Teste {
 		fim = LocalDateTime.now();
 		System.out.println(ChronoUnit.MILLIS.between(inicio, fim));
 		
-		System.out.println("Funcionario "+funcionario.getNome()+ " est· em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
+		System.out.println("Funcionario "+funcionario.getNome()+ " est√° em Cache? " + cache.contains(Funcionario.class, funcionario.getId()));
 		
 		
 		em.close();
+		emf.close();
 	}
 	
 	private static void incluirFuncionario(EntityManager em, Funcionario funcionario, Tarefa tarefa) {
@@ -97,7 +98,7 @@ public class Teste {
 		funcionario.setNome("Alberto Santos");
 		
 		Tarefa tarefa = new Tarefa();
-		tarefa.setDescricao("Teste Unit·rio");
+		tarefa.setDescricao("Teste Unit√°rio");
 		tarefa.setDuracao(100);
 		tarefa.getFuncionarios().add(funcionario);
 		funcionario.getTarefas().add(tarefa);
