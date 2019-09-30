@@ -1,4 +1,4 @@
-package ex3;
+package ex001;
 public class Calculo {
 
 	public static void main(String[] args) {
