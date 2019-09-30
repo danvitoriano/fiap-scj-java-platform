@@ -7,6 +7,10 @@ public class Cliente {
 	private String numeroCpf;
 	private String endereco;
 	
+	public static void main(String[] args) {
+		new Cliente("123");
+	}
+	
 	public Cliente(){
 		
 	}
@@ -14,6 +18,7 @@ public class Cliente {
 	public Cliente(String numeroRg){
 		this();
 		this.numeroRg=numeroRg;
+		System.out.println(this.numeroRg);
 	}
 	
 	public Cliente(String numeroRg, String numeroCpf, String endereco, String nome){
