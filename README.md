@@ -1,8 +1,8 @@
-# Exemplos e Aplicações para o curso de pós-graduação Desenvolvimento de Aplicações Java - SOA e Internet das Coisas
+# Exemplos e Aplicações para o curso MBA Full Stack Developer - Microservices, Cloud & IoT
 
-Abrangem as disciplinas **Fundamentos da Plataforma Java e UML** e **Persistência em Java**
+Disciplina **Java Platform**
 
 Cada projeto se refere a aulas e/ou roteiros executados em sala de aula.
-Fique a vontade para evoluir estes exemplos, desde que sejam válidos, aceitarei Pull Requests :smile:.
+Fique a vontade para evoluir estes exemplos. Aceitamos Pull Requests :smile:.
 
-Para saber mais sobre os cursos, acesse o site de MBA da FIAP em https://www.fiap.com.br/mba/mba-em-desenvolvimento-de-aplicacoes-java-soa-e-internet-das-coisas/.
+Para saber mais sobre os cursos, acesse o site de MBA da FIAP em https://www.fiap.com.br/mba/mba-em-full-stack-developer-microservices-cloud-e-iot/.
